@@ -10,6 +10,7 @@ const buttonsDiv = document.createElement('div');
 const buttonNames = ['Rock', 'Paper', 'Scissors'];
 buttonNames.forEach(buttonName => {
     const button = document.createElement('button');
+    button.classList.add('rps-button');
     button.textContent = buttonName;
     button.value = buttonName;
     buttonsDiv.appendChild(button);
@@ -40,6 +41,7 @@ function playRound(e) {
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
     updateScore(roundResult);
     displayRoundResult(roundResult);
+    if (playerScore >= 5 || computerScore >= 5) gameEnd(roundResult);
 }
 function computerPlay() {
     let plays = ['Rock', 'Paper', 'Scissors'];
@@ -67,7 +69,15 @@ function updateScore(roundResult) {
 function displayRoundResult(roundResult) {
     resultsBox.textContent = roundResult;
 }
-function displayCurrentSelections(playerSelection, computerSelection){
+function displayCurrentSelections(playerSelection, computerSelection) {
     playerCurrentSelection.textContent = `player: ${playerSelection}`;
     computerCurrentSelection.textContent = `computer: ${computerSelection}`;
+}
+function gameEnd(roundResult) {
+    if (roundResult == 'PLAYER') resultsBox.textContent = 'Congratulations! You Won!';
+    else resultsBox.textContent = 'You lost! Maybe next time...';
+    const buttons = document.querySelectorAll('.rps-button');
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
 }
