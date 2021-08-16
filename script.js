@@ -11,10 +11,10 @@ buttonNames.forEach(buttonName => {
 });
 body.appendChild(buttonsDiv);
 
-const roundResults = document.createElement('div');
-roundResults.id = 'round-results';
-roundResults.style.cssText = 'min-height: 40px; border: 1px solid lightgray';
-body.appendChild(roundResults);
+const resultsBox = document.createElement('div');
+resultsBox.id = 'round-results';
+resultsBox.style.cssText = 'min-height: 40px; border: 1px solid lightgray';
+body.appendChild(resultsBox);
 
 buttonsDiv.addEventListener('click', playRound);
 
@@ -27,7 +27,8 @@ function playRound(e) {
     const computerSelection = computerPlay();
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
     updateScore(roundResult);
-    roundResults.textContent = roundResult;
+
+    resultsBox.textContent = roundResult;
 }
 function computerPlay() {
     let plays = ['Rock', 'Paper', 'Scissors'];
