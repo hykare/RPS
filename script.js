@@ -29,6 +29,11 @@ resultsBox.id = 'round-results';
 resultsBox.style.cssText = 'min-height: 40px; border: 1px solid lightgray';
 body.appendChild(resultsBox);
 
+const playAgain = document.createElement('button');
+playAgain.textContent = 'play again';
+body.appendChild(playAgain);
+
+playAgain.addEventListener('click', resetGame);
 buttonsDiv.addEventListener('click', playRound);
 
 let playerScore = 0;
@@ -79,5 +84,17 @@ function gameEnd(roundResult) {
     const buttons = document.querySelectorAll('.rps-button');
     buttons.forEach(button => {
         button.disabled = true;
+    });
+}
+function resetGame(e) {
+    playerScore = 0;
+    computerScore = 0;
+    score.textContent = `${playerScore} : ${computerScore}`;
+    playerCurrentSelection.textContent = 'player: ';
+    computerCurrentSelection.textContent = 'computer: ';
+    resultsBox.textContent = '';
+    const buttons = document.querySelectorAll('.rps-button');
+    buttons.forEach(button => {
+        button.disabled = false;
     });
 }
