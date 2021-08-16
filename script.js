@@ -1,6 +1,11 @@
 'use strict';
 const body = document.querySelector('body');
 
+const score = document.createElement('div');
+score.style.cssText = 'min-height: 40px; max-width: 200px; border: 1px solid grey';
+score.textContent = '0 : 0';
+body.appendChild(score);
+
 const buttonsDiv = document.createElement('div');
 const buttonNames = ['Rock', 'Paper', 'Scissors'];
 buttonNames.forEach(buttonName => {
