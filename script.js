@@ -27,8 +27,7 @@ function playRound(e) {
     const computerSelection = computerPlay();
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
     updateScore(roundResult);
-
-    resultsBox.textContent = roundResult;
+    displayRoundResult(roundResult);
 }
 function computerPlay() {
     let plays = ['Rock', 'Paper', 'Scissors'];
@@ -51,4 +50,7 @@ function checkRoundWinner(playerSelection, computerSelection) {
 function updateScore(roundResult) {
     if (roundResult == 'PLAYER') playerScore++;
     else if (roundResult == 'COMPUTER') computerScore++;
+}
+function displayRoundResult(roundResult){
+    resultsBox.textContent = roundResult;
 }
