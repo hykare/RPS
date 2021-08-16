@@ -1,12 +1,11 @@
 'use strict';
 const body = document.querySelector('body');
 const main = document.createElement('div');
-main.style.cssText = 'display:flex; flex-direction: column';
-main.style.alignItems = 'center';
+main.id = 'main';
 body.appendChild(main);
 
 const score = document.createElement('div');
-score.style.cssText = 'min-height: 40px; max-width: 200px; border: 1px solid grey';
+score.id = 'score';
 score.textContent = '0 : 0';
 main.appendChild(score);
 
@@ -30,7 +29,6 @@ main.appendChild(computerCurrentSelection);
 
 const resultsBox = document.createElement('div');
 resultsBox.id = 'round-results';
-resultsBox.style.cssText = 'min-height: 40px; border: 1px solid lightgray';
 main.appendChild(resultsBox);
 
 const playAgain = document.createElement('button');
