@@ -31,6 +31,7 @@ body.appendChild(resultsBox);
 
 const playAgain = document.createElement('button');
 playAgain.textContent = 'play again';
+playAgain.style.display = 'none';
 body.appendChild(playAgain);
 
 playAgain.addEventListener('click', resetGame);
@@ -85,6 +86,7 @@ function gameEnd(roundResult) {
     buttons.forEach(button => {
         button.disabled = true;
     });
+    playAgain.style.display = '';
 }
 function resetGame(e) {
     playerScore = 0;
@@ -97,4 +99,5 @@ function resetGame(e) {
     buttons.forEach(button => {
         button.disabled = false;
     });
+    playAgain.style.display = 'none';
 }
