@@ -1,10 +1,14 @@
 'use strict';
 const body = document.querySelector('body');
+const main = document.createElement('div');
+main.style.cssText = 'display:flex; flex-direction: column';
+main.style.alignItems = 'center';
+body.appendChild(main);
 
 const score = document.createElement('div');
 score.style.cssText = 'min-height: 40px; max-width: 200px; border: 1px solid grey';
 score.textContent = '0 : 0';
-body.appendChild(score);
+main.appendChild(score);
 
 const buttonsDiv = document.createElement('div');
 const buttonNames = ['Rock', 'Paper', 'Scissors'];
@@ -15,24 +19,24 @@ buttonNames.forEach(buttonName => {
     button.value = buttonName;
     buttonsDiv.appendChild(button);
 });
-body.appendChild(buttonsDiv);
+main.appendChild(buttonsDiv);
 
 const playerCurrentSelection = document.createElement('div');
 const computerCurrentSelection = document.createElement('div');
 playerCurrentSelection.textContent = 'player: ';
 computerCurrentSelection.textContent = 'computer: ';
-body.appendChild(playerCurrentSelection);
-body.appendChild(computerCurrentSelection);
+main.appendChild(playerCurrentSelection);
+main.appendChild(computerCurrentSelection);
 
 const resultsBox = document.createElement('div');
 resultsBox.id = 'round-results';
 resultsBox.style.cssText = 'min-height: 40px; border: 1px solid lightgray';
-body.appendChild(resultsBox);
+main.appendChild(resultsBox);
 
 const playAgain = document.createElement('button');
 playAgain.textContent = 'play again';
 playAgain.style.display = 'none';
-body.appendChild(playAgain);
+main.appendChild(playAgain);
 
 playAgain.addEventListener('click', resetGame);
 buttonsDiv.addEventListener('click', playRound);
