@@ -22,12 +22,11 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound(e) {
-
-
     let playerSelection = e.srcElement.value;
     playerSelection = playerSelection.toUpperCase();
     const computerSelection = computerPlay();
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
+    updateScore(roundResult);
     roundResults.textContent = roundResult;
 }
 function computerPlay() {
@@ -47,4 +46,8 @@ function checkRoundWinner(playerSelection, computerSelection) {
         || (playerSelection === 'SCISSORS' && computerSelection === 'Rock')
     ) return 'COMPUTER';
     else return "TIE";
+}
+function updateScore(roundResult) {
+    if (roundResult == 'PLAYER') playerScore++;
+    else if (roundResult == 'COMPUTER') computerScore++;
 }
