@@ -55,6 +55,7 @@ function checkRoundWinner(playerSelection, computerSelection) {
 function updateScore(roundResult) {
     if (roundResult == 'PLAYER') playerScore++;
     else if (roundResult == 'COMPUTER') computerScore++;
+    score.textContent = `${playerScore} : ${computerScore}`;
 }
 function displayRoundResult(roundResult){
     resultsBox.textContent = roundResult;
