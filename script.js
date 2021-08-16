@@ -27,8 +27,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound(e) {
-    let playerSelection = e.srcElement.value;
-    playerSelection = playerSelection.toUpperCase();
+    const playerSelection = e.srcElement.value;
     const computerSelection = computerPlay();
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
     updateScore(roundResult);
@@ -41,14 +40,14 @@ function computerPlay() {
 }
 function checkRoundWinner(playerSelection, computerSelection) {
     if (
-        (playerSelection === 'ROCK' && computerSelection === 'Scissors')
-        || (playerSelection === 'PAPER' && computerSelection === 'Rock')
-        || (playerSelection === 'SCISSORS' && computerSelection === 'Paper')
+        (playerSelection === 'Rock' && computerSelection === 'Scissors')
+        || (playerSelection === 'Paper' && computerSelection === 'Rock')
+        || (playerSelection === 'Scissors' && computerSelection === 'Paper')
     ) return 'PLAYER';
     else if (
-        (playerSelection === 'ROCK' && computerSelection === 'Paper')
-        || (playerSelection === 'PAPER' && computerSelection === 'Scissors')
-        || (playerSelection === 'SCISSORS' && computerSelection === 'Rock')
+        (playerSelection === 'Rock' && computerSelection === 'Paper')
+        || (playerSelection === 'Paper' && computerSelection === 'Scissors')
+        || (playerSelection === 'Scissors' && computerSelection === 'Rock')
     ) return 'COMPUTER';
     else return "TIE";
 }
@@ -57,6 +56,6 @@ function updateScore(roundResult) {
     else if (roundResult == 'COMPUTER') computerScore++;
     score.textContent = `${playerScore} : ${computerScore}`;
 }
-function displayRoundResult(roundResult){
+function displayRoundResult(roundResult) {
     resultsBox.textContent = roundResult;
 }
