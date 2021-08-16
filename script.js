@@ -16,6 +16,13 @@ buttonNames.forEach(buttonName => {
 });
 body.appendChild(buttonsDiv);
 
+const playerCurrentSelection = document.createElement('div');
+const computerCurrentSelection = document.createElement('div');
+playerCurrentSelection.textContent = 'player: ';
+computerCurrentSelection.textContent = 'computer: ';
+body.appendChild(playerCurrentSelection);
+body.appendChild(computerCurrentSelection);
+
 const resultsBox = document.createElement('div');
 resultsBox.id = 'round-results';
 resultsBox.style.cssText = 'min-height: 40px; border: 1px solid lightgray';
@@ -29,6 +36,7 @@ let computerScore = 0;
 function playRound(e) {
     const playerSelection = e.srcElement.value;
     const computerSelection = computerPlay();
+    displayCurrentSelections(playerSelection, computerSelection);
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
     updateScore(roundResult);
     displayRoundResult(roundResult);
@@ -58,4 +66,8 @@ function updateScore(roundResult) {
 }
 function displayRoundResult(roundResult) {
     resultsBox.textContent = roundResult;
+}
+function displayCurrentSelections(playerSelection, computerSelection){
+    playerCurrentSelection.textContent = `player: ${playerSelection}`;
+    computerCurrentSelection.textContent = `computer: ${computerSelection}`;
 }
