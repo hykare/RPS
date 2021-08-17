@@ -11,8 +11,9 @@ main.appendChild(score);
 
 const playerButtons = document.createElement('div');
 const computerButtons = document.createElement('div');
+playerButtons.id = 'player-buttons';
+computerButtons.id = 'computer-buttons';
 const buttonNames = ['Rock', 'Paper', 'Scissors'];
-// buttonsDiv.id = 'buttons-div';
 buttonNames.forEach(buttonName => {
     const playerbutton = document.createElement('button');
     const computerButton = document.createElement('button');
