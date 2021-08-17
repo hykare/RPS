@@ -9,16 +9,26 @@ score.id = 'score';
 score.textContent = '0 : 0';
 main.appendChild(score);
 
-const buttonsDiv = document.createElement('div');
+const playerButtons = document.createElement('div');
+const computerButtons = document.createElement('div');
 const buttonNames = ['Rock', 'Paper', 'Scissors'];
-buttonsDiv.id = 'buttons-div';
+// buttonsDiv.id = 'buttons-div';
 buttonNames.forEach(buttonName => {
-    const button = document.createElement('button');
-    button.classList.add('rps-button');
-    button.value = buttonName;
-    buttonsDiv.appendChild(button);
+    const playerbutton = document.createElement('button');
+    const computerButton = document.createElement('button');
+    playerbutton.classList.add('rps-button');
+    computerButton.classList.add('rps-button');
+    playerbutton.value = buttonName;
+    computerButton.value = buttonName;
+    playerButtons.appendChild(playerbutton);
+    computerButtons.appendChild(computerButton);
 });
-main.appendChild(buttonsDiv);
+main.appendChild(playerButtons);
+main.appendChild(computerButtons);
+
+const resultsBox = document.createElement('div');
+resultsBox.id = 'round-results';
+main.insertBefore(resultsBox, computerButtons);
 
 const playerCurrentSelection = document.createElement('div');
 const computerCurrentSelection = document.createElement('div');
@@ -27,10 +37,6 @@ computerCurrentSelection.textContent = 'computer: ';
 main.appendChild(playerCurrentSelection);
 main.appendChild(computerCurrentSelection);
 
-const resultsBox = document.createElement('div');
-resultsBox.id = 'round-results';
-main.appendChild(resultsBox);
-
 const playAgain = document.createElement('button');
 playAgain.id = 'play-again';
 playAgain.textContent = 'play again';
@@ -38,7 +44,7 @@ playAgain.style.display = 'none';
 main.appendChild(playAgain);
 
 playAgain.addEventListener('click', resetGame);
-buttonsDiv.addEventListener('click', playRound);
+playerButtons.addEventListener('click', playRound);
 
 let playerScore = 0;
 let computerScore = 0;
