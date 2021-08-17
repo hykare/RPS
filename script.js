@@ -11,10 +11,10 @@ main.appendChild(score);
 
 const buttonsDiv = document.createElement('div');
 const buttonNames = ['Rock', 'Paper', 'Scissors'];
+buttonsDiv.id = 'buttons-div';
 buttonNames.forEach(buttonName => {
     const button = document.createElement('button');
     button.classList.add('rps-button');
-    button.textContent = buttonName;
     button.value = buttonName;
     buttonsDiv.appendChild(button);
 });
@@ -32,6 +32,7 @@ resultsBox.id = 'round-results';
 main.appendChild(resultsBox);
 
 const playAgain = document.createElement('button');
+playAgain.id = 'play-again';
 playAgain.textContent = 'play again';
 playAgain.style.display = 'none';
 main.appendChild(playAgain);
