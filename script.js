@@ -56,8 +56,8 @@ function playRound(e) {
     displayCurrentSelections(playerSelection, computerSelection);
     let roundResult = checkRoundWinner(playerSelection, computerSelection);
     updateScore(roundResult);
-    displayRoundResult(roundResult);
-    if (playerScore >= 5 || computerScore >= 5) gameEnd(roundResult);
+    displayRoundResult(roundResult, playerSelection, computerSelection);
+    if (playerScore >= 5 || computerScore >= 5) endGame(roundResult);
 }
 function computerPlay() {
     let plays = ['Rock', 'Paper', 'Scissors'];
@@ -82,14 +82,22 @@ function updateScore(roundResult) {
     else if (roundResult == 'COMPUTER') computerScore++;
     score.textContent = `${playerScore} : ${computerScore}`;
 }
-function displayRoundResult(roundResult) {
-    resultsBox.textContent = roundResult;
+function displayRoundResult(roundResult, playerSelection, computerSelection) {
+    let message;
+    if (roundResult == 'PLAYER') {
+        message = `you win! ${playerSelection} beats ${computerSelection}`;
+    }
+    else if(roundResult=='COMPUTER'){
+        message = `you lose! ${computerSelection} beats ${playerSelection}`;
+    }
+    else message = "it's a tie";
+    resultsBox.textContent = message;
 }
 function displayCurrentSelections(playerSelection, computerSelection) {
     playerCurrentSelection.textContent = `player: ${playerSelection}`;
     computerCurrentSelection.textContent = `computer: ${computerSelection}`;
 }
-function gameEnd(roundResult) {
+function endGame(roundResult) {
     if (roundResult == 'PLAYER') resultsBox.textContent = 'Congratulations! You Won!';
     else resultsBox.textContent = 'You lost! Maybe next time...';
     const buttons = document.querySelectorAll('.rps-button');
