@@ -14,7 +14,7 @@ button{
     font: inherit;
     color: inherit;
 }
-#main{
+main{
     min-width: 350px;
     height: 100%;
     display:flex;

@@ -1,8 +1,6 @@
 'use strict';
 const body = document.querySelector('body');
-const main = document.createElement('div');
-main.id = 'main';
-body.appendChild(main);
+const main = document.createElement('main');
 
 const score = document.createElement('div');
 score.id = 'score';
@@ -43,6 +41,8 @@ playAgain.id = 'play-again';
 playAgain.textContent = 'play again';
 playAgain.style.display = 'none';
 main.appendChild(playAgain);
+
+body.appendChild(main);
 
 playAgain.addEventListener('click', resetGame);
 playerButtons.addEventListener('click', playRound);
