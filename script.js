@@ -26,18 +26,36 @@ main.appendChild(playerButtons);
 main.appendChild(computerButtons);
 
 const middleDiv = document.createElement('div');
+
 const playerCurrentSelection = document.createElement('div');
+const playerLeftDiv = document.createElement('div');
+const playerRightDiv = document.createElement('div');
+playerCurrentSelection.style.display = 'flex';
+playerLeftDiv.style.cssText = 'width: 50%; display:flex; justify-content:right';
+playerRightDiv.style.cssText = 'width: 50%';
+playerLeftDiv.textContent = 'you chose:';
+playerRightDiv.textContent = '...';
+playerCurrentSelection.appendChild(playerLeftDiv);
+playerCurrentSelection.appendChild(playerRightDiv);
+
 const computerCurrentSelection = document.createElement('div');
-playerCurrentSelection.textContent = 'player: ';
-computerCurrentSelection.textContent = 'computer: ';
+const computerLeftDiv = document.createElement('div');
+const computerRightDiv = document.createElement('div');
+computerCurrentSelection.style.display = 'flex';
+computerLeftDiv.style.cssText = 'width: 50%; display:flex; justify-content:right';
+computerRightDiv.style.cssText = 'width: 50%';
+computerLeftDiv.textContent = 'computer chose:';
+computerRightDiv.textContent = '...';
+computerCurrentSelection.appendChild(computerLeftDiv);
+computerCurrentSelection.appendChild(computerRightDiv);
+
 middleDiv.appendChild(playerCurrentSelection);
 middleDiv.appendChild(computerCurrentSelection);
+
 const resultsBox = document.createElement('div');
 resultsBox.id = 'round-results';
-middleDiv.appendChild(resultsBox);
+middleDiv.insertBefore(resultsBox, computerCurrentSelection);
 main.insertBefore(middleDiv, computerButtons);
-
-
 
 const playAgain = document.createElement('button');
 playAgain.id = 'play-again';
@@ -90,15 +108,15 @@ function displayRoundResult(roundResult, playerSelection, computerSelection) {
     if (roundResult == 'PLAYER') {
         message = `you win! ${playerSelection} beats ${computerSelection}`;
     }
-    else if(roundResult=='COMPUTER'){
+    else if (roundResult == 'COMPUTER') {
         message = `you lose! ${computerSelection} beats ${playerSelection}`;
     }
     else message = "it's a tie";
     resultsBox.textContent = message;
 }
 function displayCurrentSelections(playerSelection, computerSelection) {
-    playerCurrentSelection.textContent = `player: ${playerSelection}`;
-    computerCurrentSelection.textContent = `computer: ${computerSelection}`;
+    playerRightDiv.textContent = playerSelection;
+    computerRightDiv.textContent = computerSelection;
 }
 function endGame(roundResult) {
     disablePlayerButtons();
@@ -109,8 +127,8 @@ function resetGame(e) {
     playerScore = 0;
     computerScore = 0;
     score.textContent = `${playerScore} : ${computerScore}`;
-    playerCurrentSelection.textContent = 'player: ';
-    computerCurrentSelection.textContent = 'computer: ';
+    playerRightDiv.textContent = '...';
+    computerRightDiv.textContent = '...';
     resultsBox.textContent = '';
     const buttons = document.querySelectorAll('.rps-button');
     buttons.forEach(button => {
@@ -118,13 +136,13 @@ function resetGame(e) {
     });
     playAgain.style.display = 'none';
 }
-function disablePlayerButtons(){
+function disablePlayerButtons() {
     const buttons = document.querySelectorAll('.rps-button');
     buttons.forEach(button => {
         button.disabled = true;
     });
 }
-function displayGameResults(roundResult){
+function displayGameResults(roundResult) {
     if (roundResult == 'PLAYER') resultsBox.textContent = 'Congratulations! You Won!';
     else resultsBox.textContent = 'You lost! Maybe next time...';
 }
