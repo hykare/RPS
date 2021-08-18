@@ -98,12 +98,8 @@ function displayCurrentSelections(playerSelection, computerSelection) {
     computerCurrentSelection.textContent = `computer: ${computerSelection}`;
 }
 function endGame(roundResult) {
-    if (roundResult == 'PLAYER') resultsBox.textContent = 'Congratulations! You Won!';
-    else resultsBox.textContent = 'You lost! Maybe next time...';
-    const buttons = document.querySelectorAll('.rps-button');
-    buttons.forEach(button => {
-        button.disabled = true;
-    });
+    disablePlayerButtons();
+    displayGameResults(roundResult);
     playAgain.style.display = '';
 }
 function resetGame(e) {
@@ -118,4 +114,14 @@ function resetGame(e) {
         button.disabled = false;
     });
     playAgain.style.display = 'none';
+}
+function disablePlayerButtons(){
+    const buttons = document.querySelectorAll('.rps-button');
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+}
+function displayGameResults(roundResult){
+    if (roundResult == 'PLAYER') resultsBox.textContent = 'Congratulations! You Won!';
+    else resultsBox.textContent = 'You lost! Maybe next time...';
 }
