@@ -64,6 +64,11 @@ playAgain.textContent = 'play again';
 playAgain.style.display = 'none';
 main.appendChild(playAgain);
 
+const attribution = document.createElement('div');
+attribution.id = 'attribution';
+attribution.innerHTML = `Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>`
+main.appendChild(attribution);
+
 body.appendChild(main);
 
 playAgain.addEventListener('click', resetGame);

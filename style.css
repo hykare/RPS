@@ -1,3 +1,9 @@
+html, body, main{
+    height: 100%;
+}
+a{
+    color:inherit;
+}
 body {
     margin: 0;
     padding: 0;
@@ -87,4 +93,11 @@ button[value='Scissors'] {
 #play-again:hover {
     background-color: rgb(255, 255, 255);
     transform: scale(102%);
+}
+#attribution{
+position: absolute;
+bottom: 0;
+font-size: 0.8rem;
+padding-bottom: 0.5rem;
+opacity: 0.5;
 }
