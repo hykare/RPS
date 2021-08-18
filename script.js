@@ -26,13 +26,14 @@ main.appendChild(playerButtons);
 main.appendChild(computerButtons);
 
 const middleDiv = document.createElement('div');
+middleDiv.style.width = '100%';
 
 const playerCurrentSelection = document.createElement('div');
 const playerLeftDiv = document.createElement('div');
 const playerRightDiv = document.createElement('div');
+playerCurrentSelection.classList.add('current-selection');
 playerCurrentSelection.style.display = 'flex';
-playerLeftDiv.style.cssText = 'width: 50%; display:flex; justify-content:right';
-playerRightDiv.style.cssText = 'width: 50%';
+playerCurrentSelection.style.justifyContent = 'center';
 playerLeftDiv.textContent = 'you chose:';
 playerRightDiv.textContent = '...';
 playerCurrentSelection.appendChild(playerLeftDiv);
@@ -41,9 +42,9 @@ playerCurrentSelection.appendChild(playerRightDiv);
 const computerCurrentSelection = document.createElement('div');
 const computerLeftDiv = document.createElement('div');
 const computerRightDiv = document.createElement('div');
+computerCurrentSelection.classList.add('current-selection');
 computerCurrentSelection.style.display = 'flex';
-computerLeftDiv.style.cssText = 'width: 50%; display:flex; justify-content:right';
-computerRightDiv.style.cssText = 'width: 50%';
+computerCurrentSelection.style.justifyContent = 'center';
 computerLeftDiv.textContent = 'computer chose:';
 computerRightDiv.textContent = '...';
 computerCurrentSelection.appendChild(computerLeftDiv);

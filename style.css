@@ -41,14 +41,15 @@ main{
     display: flex;
     justify-content: center;
     font-size: 1.4rem;
-    min-height: 40px;
-    min-width: 300px;
-    border: 1px dotted rgb(240, 240, 240);
-    margin: 9vh 0;
+    min-height: 2rem;
+    margin: 8vh 2vw;
+}
+.current-selection{
+    margin: 2rem 0;
 }
 .rps-button{
-    width: 25vmin;
-    height:25vmin;
+    width: 20vmin;
+    height:20vmin;
     min-width: 100px;
     min-height: 100px;
     max-width: 200px;
@@ -61,7 +62,6 @@ main{
 }
 #player-buttons .rps-button{
 background-color: rgb(255, 239, 191);
-    /* border: 2px solid rgb(218, 210, 210); */
 }
 #player-buttons .rps-button:hover{
     background-color: rgb(186, 243, 239);
@@ -86,14 +86,13 @@ button[value='Scissors']{
 #play-again{
     margin: 1rem;
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 0.7rem 1rem;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgba(182, 135, 135, 1);
     border-radius: 4px;
     box-shadow: 0 1px 12px rgba(129, 88, 156, 0.1);
 }
 #play-again:hover{
-    /* border: 2px solid grey; */
     background-color: rgb(255, 255, 255);
     transform: scale(102%);
 }
