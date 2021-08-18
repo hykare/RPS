@@ -25,16 +25,19 @@ buttonNames.forEach(buttonName => {
 main.appendChild(playerButtons);
 main.appendChild(computerButtons);
 
-const resultsBox = document.createElement('div');
-resultsBox.id = 'round-results';
-main.insertBefore(resultsBox, computerButtons);
-
+const middleDiv = document.createElement('div');
 const playerCurrentSelection = document.createElement('div');
 const computerCurrentSelection = document.createElement('div');
 playerCurrentSelection.textContent = 'player: ';
 computerCurrentSelection.textContent = 'computer: ';
-main.appendChild(playerCurrentSelection);
-main.appendChild(computerCurrentSelection);
+middleDiv.appendChild(playerCurrentSelection);
+middleDiv.appendChild(computerCurrentSelection);
+const resultsBox = document.createElement('div');
+resultsBox.id = 'round-results';
+middleDiv.appendChild(resultsBox);
+main.insertBefore(middleDiv, computerButtons);
+
+
 
 const playAgain = document.createElement('button');
 playAgain.id = 'play-again';
